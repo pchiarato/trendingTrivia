@@ -103,6 +103,8 @@ article {
   padding: 3px;
   border-radius: 2px;
 }
+
+
 div.gear {
   height: 1.5rem;
   padding: 0;
@@ -152,7 +154,7 @@ label, input[type="radio"], input[type="range"] {
   width: 100vw;
   background: rgba(88, 88, 88, 0.55);
   display: flex;
-  display: none; /* ALERTDELETEME - REMOVE THIS line only WHEN STYLING THE MODAL*/
+/*  display: none;*/
   justify-content: center;
   align-items: center;
 }
