@@ -27,7 +27,7 @@
       <input type="text" placeholder="Animal to search by">
     </div>
    
-   <div id="questionDiv" ng-repeat="question in questions" class="question-wrapper">
+   <div ng-class="{green: changeColor}" id="questionDiv" ng-repeat="question in questions track by $index" class="question-wrapper">
 
        <h3>{{question.question}}</h3>
  <div>{{question.difficulty}}</div>
@@ -35,16 +35,23 @@
   <img src="/styles/assets/gear.svg" alt="">
 </div>
 <ul>
-  <li ng-repeat="option in question.options"> <!-- Repeated for each option -->
-    <div ng-model="option">
-      <label ng-click="isCorrect(question.correct_answer)">{{option}}</label>
+  <li ng-repeat="(key,value) in question.options"> <!-- Repeated for each option -->
+    <div ng-model="value">
+      <label ng-click="isCorrect(question.correct_answer,key)">{{value}}</label>
       </div>
   </li>
 </ul>
 
 </div>
+  
+  <div class="pagination">
+      <button class="pagination-btn" ng-click="previousPage()">Previous</button>
+      <button class="pagination-btn" ng-click="nextPage()">Next</button>
+  </div>
 
   </article>
+  
+  
 
   <div ng-show="questionForm" class="modal">
     <form>
@@ -95,12 +102,12 @@
 
 
 
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script>
   <script src="js/app.js" charset="utf-8"></script>
   <script src="js/mainCtrl.js"></script>
   <script src="js/service.js"></script>
+  <script src="js/colorDirective.js"></script>
 
 </body>
 
